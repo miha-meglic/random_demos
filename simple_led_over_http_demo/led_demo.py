@@ -9,7 +9,7 @@ def led_set(ser: Serial, led_id: int, red: int, green: int, blue: int, white: in
     msg = (msg << 8) + blue
     msg = (msg << 8) + white
 
-    ser.write(msg.to_bytes(5))
+    ser.write(msg.to_bytes(5, byteorder='big'))
 
 
 def led_set_all(ser: Serial, led_count: int,  red: int, green: int, blue: int, white: int):
